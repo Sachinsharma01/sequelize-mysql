@@ -2,9 +2,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import * as swaggerUi from "swagger-ui-express";
+import { errors } from "celebrate";
 import { logger } from "./utils/index.js";
 import config from "./config/index.js";
-import dbConnect from "./loaders/db.js";
+import { dbConnect } from "./loaders/db.js";
 import loadApi from "./api/index.js";
 import specs from "./swagger.js";
 
@@ -16,7 +17,9 @@ async function startServer() {
   app.use(bodyParser.urlencoded({ extended: false }));
 
   await dbConnect();
+
   app.use("/api", loadApi());
+  app.use(errors())
 
   // loading swagger doc
   app.use("/api" + "/api-docs/", swaggerUi.serve, swaggerUi.setup(specs));

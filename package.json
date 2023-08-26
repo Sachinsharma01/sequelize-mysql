@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon"
+    "start-local": "nodemon"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sachinsharma01/sequelize-mysql.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sachin Sharma",
   "license": "ISC",
   "type": "module",
   "bugs": {
@@ -35,5 +35,9 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
     "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/preset-env": "^7.22.10"
   }
 }
